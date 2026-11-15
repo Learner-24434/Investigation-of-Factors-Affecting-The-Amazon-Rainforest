@@ -86,21 +86,19 @@ desc_Frame = CTkFrame(app, 600, 800, border_width=2, border_color=BORDER_COLOUR)
 desc_Frame.place(x=1000, y=100)
 
 DESCRIPTION = {
-    "NDVI" : "NDVI: ",
-    "EVI" : "EVI: ",
-    "Sahara Surface Wind Speed": "Sahara Surface Wind Speed: ",
-    "Sahara Dust Density" : "Sahara Dust Density: ",
-    "Ratio of Dust Deposition over Dust Emission":"Ratio of Dust Deposition over Dust Emission: ",
-    "Atlantic Wind Speed 850hPa" : "Atlantic Wind Speed 850hPa: ",
-    "Atlantic Dust Density" : "Atlantic Dust Density: ",
-
-    "Time" : f"Time: Our standard comparitive variable, used to demonstrate temporal variation for each variable under the recent time frame of {START_DATE.year} to {END_DATE.year}"
+    "NDVI" : "NDVI: [Normalised Difference Vegetation Index] A measurement of plant health via infrared radiation, gives values from -1 to 1, with 1 being healthiest and -1 being the least healthy. The NDVI has shown a weak negative correlation with the progression of time. The p value shows a value of 0.36, corroborating the correlation to show an insignificant statistical significance.",
+    "EVI" : "EVI: [Enhanced Vegetation Index], A measurement of plant health with adjusted radiation frequncies providing more accurate readings with dense vegetation than NDVI, with the caveat of being marginally more recent and having less historical data. gives values from -1 to 1, with 1 being healthiest and -1 being the least healthy. The EVI has shown a significantly weaker negative correlation than NDVI, strongly suggesting that the NDVI added inaccuracy caused by vertically overlapping plant life is the main source of the higher (albeit still insisgnificant) statstical significance. The p value was 0.767, more than double that of NDVI.",
+    "Sahara Surface Wind Speed": "Sahara Surface Wind Speed: The net wind speed as taken 10 metres over the surface of the sahara. The sahara surface wind speed had essenetially no correlation, with the best fitting line having a gradient near zero, and the p value being 0.951.",
+    "Sahara Dust Density" : "Sahara Dust Density: The amount of dust per unit volume as given in kg/m³. The dust density over the sahara showed a weak negative correlation with time, though once more there was a lack of statistical significance with a p value of 0.26.",
+    "Ratio of Dust Deposition over Dust Emission":"Ratio of Dust Deposition over Dust Emission: The ratio of the dust deposited in the amazon to the dust that travelled over the atlantic. The ratio between sand deposited in the Amazon and sand transferred over the atlantic has shown a weak positive trend, indicating that a greater proportion of sand transferred over the atlantic is reaching the Amazon rainforest, potentially caused by the increase in transatlantic winds. The data is, in spite of all this, statistically insignificant, having a p value of 0.126.",
+    "Atlantic Wind Speed 850hPa" : "Atlantic Wind Speed 850hPa: Wind Speed at 850hPa: Wind speed taken over atlantic (850hPa being the rough atmospheric pressure at the points measured). ",
+    "Atlantic Dust Density" : "Atlantic Dust Density: The amount of dust per unit volume as given in kg/m³. The dust density over the atlantic showed a slight positive correllation with the progression of time, potentially due to the increased wind speeds allowing a greater number of particles to maintain elevation. Once again there was a strong lack of statistical significance with a p value of 0.408.",
 }
 
 
 var_x = str(var_x_menu.get())
 
-var_detail = CTkLabel(desc_Frame, text = f"{DESCRIPTION[var_x]}\n{DESCRIPTION["Time"]}", font = ("Roboto", 15), anchor = "w", justify = "left", wraplength = 600-30)
+var_detail = CTkLabel(desc_Frame, text = DESCRIPTION[var_x], font = ("Roboto", 18), anchor = "w", justify = "left", wraplength = 600-30)
 var_detail.place(x = 15, y = 15)
 
 apply()
